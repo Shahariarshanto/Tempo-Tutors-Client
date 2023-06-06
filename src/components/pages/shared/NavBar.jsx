@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { FiMoon, FiSun } from 'react-icons/fi';
+
 export default function NavBar({darkMode, toggleDarkMode}) {
     return (<>
     
