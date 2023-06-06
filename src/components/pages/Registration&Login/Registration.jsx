@@ -30,7 +30,7 @@ const togglePasswordVisibility = () => {
               type="text"
               id="name"
               {...register("name", { required: "Name is required" })}
-              className="border border-gray-300 px-3 py-2 rounded-md w-full"
+              className="border border-gray-300 dark:bg-gray-700 dark:text-white px-3 py-2 rounded-md w-full"
             />
             {errors.name && (
               <p className="text-red-500">{errors.name.message}</p>
@@ -44,7 +44,7 @@ const togglePasswordVisibility = () => {
               type="email"
               id="email"
               {...register("email", { required: "Email is required" })}
-              className="border border-gray-300 px-3 py-2 rounded-md w-full"
+              className="border border-gray-300 dark:bg-gray-700 dark:text-white px-3 py-2 rounded-md w-full"
             />
             {errors.email && (
               <p className="text-red-500">{errors.email.message}</p>
@@ -70,7 +70,7 @@ const togglePasswordVisibility = () => {
                       "Password must contain at least one capital letter and one special character",
                   },
                 })}
-                className="border border-gray-300 px-3 py-2 rounded-md w-full"
+                className="border border-gray-300 px-3 dark:bg-gray-700 dark:text-white py-2 rounded-md w-full"
               />
               <button
                 type="button"
@@ -99,7 +99,7 @@ const togglePasswordVisibility = () => {
                 validate: (value) =>
                   value === password || "The passwords do not match",
               })}
-              className="border border-gray-300 px-3 py-2 rounded-md w-full"
+              className="border dark:bg-gray-700 dark:text-white border-gray-300 px-3 py-2 rounded-md w-full"
             />
             {errors.confirmPassword && (
               <p className="text-red-500">{errors.confirmPassword.message}</p>
@@ -113,7 +113,7 @@ const togglePasswordVisibility = () => {
               type="text"
               id="photoURL"
               {...register("photoURL")}
-              className="border border-gray-300 px-3 py-2 rounded-md w-full"
+              className="border dark:bg-gray-700 dark:text-white border-gray-300 px-3 py-2 rounded-md w-full"
             />
           </div>
           <div className="mb-4">
@@ -123,7 +123,7 @@ const togglePasswordVisibility = () => {
             <select
               id="gender"
               {...register("gender")}
-              className="border border-gray-300 px-3 py-2 rounded-md w-full"
+              className="border dark:bg-gray-700 dark:text-white border-gray-300 px-3 py-2 rounded-md w-full"
             >
               <option value="">Select</option>
               <option value="male">Male</option>
@@ -138,7 +138,7 @@ const togglePasswordVisibility = () => {
               type="tel"
               id="phoneNumber"
               {...register("phoneNumber")}
-              className="border border-gray-300 px-3 py-2 rounded-md w-full"
+              className="border dark:bg-gray-700 dark:text-white border-gray-300 px-3 py-2 rounded-md w-full"
             />
           </div>
           <div className="mb-4">
@@ -148,10 +148,10 @@ const togglePasswordVisibility = () => {
             <textarea
               id="address"
               {...register("address")}
-              className="border border-gray-300 px-3 py-2 rounded-md w-full"
+              className="border dark:bg-gray-700 dark:text-white border-gray-300 px-3 py-2 rounded-md w-full"
             ></textarea>
           </div>
-         
+
           <div className="flex items-center mb-4">
             <input
               type="checkbox"
