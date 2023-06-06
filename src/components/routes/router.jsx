@@ -4,11 +4,9 @@ import {
 import App from "../../App";
 
 
-export default function router() {
-    return createBrowserRouter([
-        {
-            path: "/",
-            element: <App />,
-        },
-    ]);
-}
+export const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <App />,
+    }
+])
