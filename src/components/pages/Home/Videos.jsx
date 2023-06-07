@@ -1,84 +1,49 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import YouTube from "react-youtube";
 
 const Videos = () => {
-     const videoIds = [
-       "FqtyMQi87J4",
-       "8xTOjAInUYc",
-       "ZLjprbeWMxQ",
-       "E442Dzg8BcE",
-     ];
-  const opts = {
-    height: "360",
-    width: "640",
-    playerVars: {
-      autoplay: 0,
-    },
-  };
+  const videoIds = ["FqtyMQi87J4", "8xTOjAInUYc", "ZLjprbeWMxQ", "E442Dzg8BcE"];
 
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const opts =  {
 
-  const onReady = (event) => {
-    const player = event.target;
+      height:  "180",
+      width: "320" ,
+      playerVars: {
+        autoplay: 0,
 
-    // Pause the video on mount
-    player.pauseVideo();
-  };
+  } }
 
-  const handleVideoClick = (index) => {
-    setCurrentVideoIndex(index);
-  };
+  const [currentVideoId, setCurrentVideoId] = useState(videoIds[0]);
 
-  const containerVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  };
-
-  const playerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.5, delay: 0.3 } },
+  const handleVideoClick = (videoId) => {
+    setCurrentVideoId(videoId);
   };
 
   return (
-      <div className="max-w-[1240px] mx-auto">
-          <h1 className="text-3xl font-bold text-center my-4">Videos From Our Blog</h1>
-      <AnimatePresence>
-        <motion.div
-          className="flex justify-center"
-          key={currentVideoIndex}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-        >
-          <motion.div
-           
-            variants={playerVariants}
-          >
-            <YouTube
-              videoId={videoIds[currentVideoIndex]}
-              opts={opts}
-              onReady={onReady}
-            />
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
-      <div className=" flex justify-between gap-3 my-7">
-        {videoIds.map((videoId, index) => (
-          <div
-            key={videoId}
-            className={`youtube-thumbnail ${
-              index === currentVideoIndex ? "active" : ""
-            }`}
-            onClick={() => handleVideoClick(index)}
-          >
-            <img
-              src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
-              alt={`YouTube Video ${index + 1}`}
-            />
-          </div>
-        ))}
+    <div className="max-w-[1240px] mx-auto">
+      <h1 className="text-3xl font-bold text-center my-4">
+        Videos From Our Blog
+      </h1>
+      <div className="flex flex-col items-center my-7 mx-2">
+        <div className="w-30">
+          <YouTube videoId={currentVideoId} opts={opts} />
+        </div>
+        <div className="flex justify-between items-center gap-3  mt-4">
+          {videoIds.map((videoId) => (
+            <div
+              key={videoId}
+              className={`youtube-thumbnail ${
+                videoId === currentVideoId ? "active" : ""
+              }`}
+              onClick={() => handleVideoClick(videoId)}
+            >
+              <img
+                src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
+                alt={`YouTube Video ${videoId}`}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
