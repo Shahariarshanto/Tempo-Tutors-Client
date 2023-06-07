@@ -1,4 +1,5 @@
-import React from "react";
+
+import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
@@ -28,7 +29,7 @@ const Banner = () => {
   ];
 
   // State to keep track of the active slide
-  const [activeSlide, setActiveSlide] = React.useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   // Function to handle slide navigation
   const handleSlideChange = (direction) => {

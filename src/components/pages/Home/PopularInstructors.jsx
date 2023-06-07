@@ -1,4 +1,3 @@
-import React from "react";
 
 const PopularInstructors = () => {
   // Mock data for instructors (replace with your own data)
@@ -84,29 +83,33 @@ const PopularInstructors = () => {
   const topInstructors = sortedInstructors.slice(0, 6);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
-      <h1 className="text-2xl font-semibold text-gray-900 text-center">Popular Instructors</h1>
-      <div className="grid grid-cols-1 mt-4 md:grid-cols-2 lg:grid-cols-3  gap-4 ">
-        {topInstructors.map((instructor, index) => (
-          <div key={index}>
-            <img
-              src={instructor.imageUrl}
-              alt={`Instructor ${index + 1}`}
-              className="h-auto max-w-full rounded-lg"
-            />
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold mt-2">
-                  {instructor.name}
-                </h3>
-                <p>Classes: {instructor.students}</p>
+    <div className="dark:bg-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-4  py-8 ">
+        <h1 className="text-3xl pb-8 font-semibold text-gray-900 text-center dark:text-white">
+          Popular Instructors
+        </h1>
+        <div className="grid grid-cols-1 mt-4 md:grid-cols-2 lg:grid-cols-3  gap-4 ">
+          {topInstructors.map((instructor, index) => (
+            <div key={index}>
+              <img
+                src={instructor.imageUrl}
+                alt={`Instructor ${index + 1}`}
+                className="h-auto max-w-full rounded-lg"
+              />
+              <div className="flex items-center justify-between dark:text-white">
+                <div>
+                  <h3 className="text-lg font-semibold mt-2">
+                    {instructor.name}
+                  </h3>
+                  <p>Classes: {instructor.students}</p>
+                </div>
+                <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">
+                  View Classes
+                </button>
               </div>
-              <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">
-                View Classes
-              </button>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
