@@ -1,22 +1,8 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
 import "./App.css";
-import Footer from "./components/pages/shared/Footer";
-import NavBar from "./components/pages/shared/NavBar";
+import Main from "./components/Layout/Main";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-  return (
-    <div className={`app ${darkMode ? "dark" : ""}`}>
-      <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <Outlet/>
-      <Footer/>
-    </div>
-  );
+  return <Main />;
 }
 
 export default App;
