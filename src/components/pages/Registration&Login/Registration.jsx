@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import SocialLogin from "../../Utility/SocialLogin";
 
 export default function Registration() {
   const {
@@ -11,12 +13,37 @@ export default function Registration() {
     watch,
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
+   const {  signInWithGoogle } =
+      useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+  const form = location.state?.form?.pathname || "/";
+
+
+
+
+
  const password = watch("password");
     const onSubmit = (data) => console.log(data);
 
 const togglePasswordVisibility = () => {
   setShowPassword(!showPassword);
 };
+  
+  
+  // Handle google register
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+
+        navigate(form);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="dark:bg-gray-800">
       <div className=" max-w-md mx-auto p-6  dark:bg-gray-800 dark:text-white bg-white text-gray-900">
@@ -181,6 +208,17 @@ const togglePasswordVisibility = () => {
             </Link>
           </p>
         </form>
+
+                 <div className="mt-4">
+          <p className="text-gray-900 dark:text-white my-3 text-center">Or</p>
+          <div onClick={handleGoogleSignIn}>
+         
+          
+          <SocialLogin />
+          </div>
+</div>
+
+       
       </div>
     </div>
   );

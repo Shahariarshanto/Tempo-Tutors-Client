@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import SocialLogin from "../../Utility/SocialLogin";
 
 export default function Login() {
   const {
@@ -11,6 +13,15 @@ export default function Login() {
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
+
+    const {  signInWithGoogle } =
+      useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+  const form = location.state?.form?.pathname || "/";
+  
+
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -18,6 +29,21 @@ export default function Login() {
   const onSubmit = (data) => {
     // Handle login logic here
       console.log(data);
+  };
+
+
+  // Handle google login
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+
+        navigate(form);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -80,8 +106,12 @@ export default function Login() {
           </Link>
         </div>
         <div className="mt-4">
-          <p>Or login with:</p>
-          {/* Add social login buttons */}
+          <p className="text-gray-900 dark:text-white my-3 text-center">Or</p>
+          <div onClick={handleGoogleSignIn}>
+         
+          
+          <SocialLogin />
+          </div>
         </div>
       </div>
     </div>
