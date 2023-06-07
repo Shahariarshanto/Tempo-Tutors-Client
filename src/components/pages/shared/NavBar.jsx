@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 export default function NavBar({ darkMode, toggleDarkMode }) {
+  const { user, logOut } = useContext(AuthContext);
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -37,8 +40,8 @@ export default function NavBar({ darkMode, toggleDarkMode }) {
               <span className="sr-only">Open user menu</span>
               <img
                 className="w-8 h-8 rounded-full"
-                src="/docs/images/people/profile-picture-3.jpg"
-                alt="user photo"
+                src={user?.photoURL}
+                alt={user?.displayName}
               />
             </button>
             {/* <!-- Dropdown menu --> */}
@@ -48,10 +51,10 @@ export default function NavBar({ darkMode, toggleDarkMode }) {
             >
               <div className="px-4 py-3">
                 <span className="block text-sm text-gray-900 dark:text-white">
-                  Bonnie Green
+                  {user?.displayName}
                 </span>
                 <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
-                  name@flowbite.com
+                  {user?.email}
                 </span>
               </div>
               <ul className="py-2" aria-labelledby="user-menu-button">
@@ -76,16 +79,20 @@ export default function NavBar({ darkMode, toggleDarkMode }) {
                     to="#"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
-                    Earnings
+                    ttt
                   </Link>
                 </li>
                 <li>
-                  <Link
+                  {
+                    user ? (<Link
                     to="#"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    onClick={() => logOut()}
                   >
+                   
                     Sign out
-                  </Link>
+                  </Link>): ""
+                  }
                 </li>
               </ul>
             </div>

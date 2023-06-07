@@ -5,11 +5,13 @@ import Home from "../pages/Home/Home";
 import Instructors from "../pages/Instructors/Instructors";
 import Login from "../pages/Registration&Login/Login";
 import Registration from "../pages/Registration&Login/Registration";
+import NotFound from "../pages/shared/NotFound";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFound/>,
     children: [
       {
         path: "/",
