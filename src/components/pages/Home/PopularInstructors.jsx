@@ -75,6 +75,7 @@ const PopularInstructors = () => {
       students: 140,
     },
   ];
+  
 
   // Sort instructors based on the number of students in descending order
   const sortedInstructors = instructors.sort((a, b) => b.students - a.students);

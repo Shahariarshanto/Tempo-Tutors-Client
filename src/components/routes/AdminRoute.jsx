@@ -1,15 +1,32 @@
 /* eslint-disable react/prop-types */
-import { useContext, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
 import { Navigate, useLocation } from "react-router";
+import useAxios from "../../../hooks/useAxios";
 import { AuthContext } from "../Providers/AuthProvider";
 
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
-  const [isAdmin, isAdminLoading] = useState();
-  const location = useLocation();
+   const location = useLocation();
+  
 
-  if (loading || isAdminLoading) {
+  
+
+  // use axios secure with react query
+  const { data: isAdmin } = useQuery({
+    queryKey: ["isAdmin", user?.email],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await useAxios.get(`/users/admin/${user?.email}`);
+      return res.data.admin;
+    },
+  });
+ 
+
+
+
+  if (loading ) {
     return <progress className="progress w-56"></progress>;
   }
 

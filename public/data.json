@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
+    "email": "johndoe@example.com",
+    "phoneNumber": "1234567890",
+    "address": "123 Main St, City",
+    "role": "Student",
+    "gender": "Male"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+    "email": "janesmith@example.com",
+    "phoneNumber": "9876543210",
+    "address": "456 Oak Ave, Town",
+    "role": "Instructor",
+    "gender": "Female"
+  },
+  {
+    "id": 3,
+    "name": "Mark Johnson",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+    "email": "markjohnson@example.com",
+    "phoneNumber": "5551234567",
+    "address": "789 Elm St, Village",
+    "role": "Student",
+    "gender": "Male"
+  },
+  {
+    "id": 4,
+    "name": "Emily Davis",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+    "email": "emilydavis@example.com",
+    "phoneNumber": "4449876543",
+    "address": "321 Maple Ave, Town",
+    "role": "Instructor",
+    "gender": "Female"
+  },
+  {
+    "id": 5,
+    "name": "Michael Wilson",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
+    "email": "michaelwilson@example.com",
+    "phoneNumber": "2223334444",
+    "address": "555 Pine St, City",
+    "role": "Student",
+    "gender": "Male"
+  },
+  {
+    "id": 6,
+    "name": "Sarah Thompson",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
+    "email": "sarahthompson@example.com",
+    "phoneNumber": "9998887777",
+    "address": "777 Oak St, Village",
+    "role": "Instructor",
+    "gender": "Female"
+  },
+  {
+    "id": 7,
+    "name": "David Martinez",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
+    "email": "davidmartinez@example.com",
+    "phoneNumber": "7774441111",
+    "address": "888 Elm St, Town",
+    "role": "Student",
+    "gender": "Male"
+  },
+  {
+    "id": 8,
+    "name": "Jessica Anderson",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
+    "email": "jessicaanderson@example.com",
+    "phoneNumber": "1112223333",
+    "address": "444 Maple Ave, City",
+    "role": "Instructor",
+    "gender": "Female"
+  },
+  {
+    "id": 9,
+    "name": "Daniel Brown",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
+    "email": "danielbrown@example.com",
+    "phoneNumber": "6665554444",
+    "address": "222 Pine St, Village",
+    "role": "Student",
+    "gender": "Male"
+  },
+  {
+    "id": 10,
+    "name": "Rachel Green",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
+    "email": "rachelgreen@example.com",
+    "phoneNumber": "8887776666",
+    "address": "333 Oak Ave, Town",
+    "role": "Instructor",
+    "gender": "Female"
+  }
+]
+
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
+    "email": "johndoe@example.com",
+    "numClasses": 5,
+    "classesTaken": ["Class A", "Class B", "Class C"]
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+    "email": "janesmith@example.com",
+    "numClasses": 3,
+    "classesTaken": ["Class D", "Class E"]
+  }
+  ,
+  
+  {
+    "id": 3,
+    "name": "Michael Johnson",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+    "email": "michaeljohnson@example.com",
+    "numClasses": 2,
+    "classesTaken": ["Class F", "Class G"]
+  },
+  {
+    "id": 4,
+    "name": "Emily Davis",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+    "email": "emilydavis@example.com",
+    "numClasses": 7,
+    "classesTaken": ["Class H", "Class I", "Class J"]
+  },
+  {
+    "id": 5,
+    "name": "Daniel Wilson",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
+    "email": "danielwilson@example.com",
+    "numClasses": 4,
+    "classesTaken": ["Class K"]
+  },
+  {
+    "id": 6,
+    "name": "Sophia Thompson",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
+    "email": "sophiathompson@example.com",
+    "numClasses": 1,
+    "classesTaken": ["Class L"]
+  },
+  {
+    "id": 7,
+    "name": "David Miller",
+    "imageUrl": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
+    "email": "davidmiller@example.com",
+    "numClasses": 6,
+    "classesTaken": ["Class M", "Class N"]
+  }
+]
+

@@ -14,7 +14,7 @@ import {
 } from "react-icons/fi";
 import { Link, Outlet } from "react-router-dom";
 
-export default function StudentDashboard({darkMode, toggleDarkMode}) {
+export default function StudentDashboard({ darkMode, toggleDarkMode }) {
   return (
     <>
       <button
@@ -45,7 +45,6 @@ export default function StudentDashboard({darkMode, toggleDarkMode}) {
                   <span className="ml-3">Student Dashboard</span>
                 </Link>
                 <button onClick={toggleDarkMode}>
-                  {" "}
                   {darkMode ? (
                     <FiSun className="w-6 h-6 dark:text-gray-200" />
                   ) : (
@@ -158,7 +157,7 @@ export default function StudentDashboard({darkMode, toggleDarkMode}) {
             </ul>
           </div>
         </aside>
-        <div className="w-full md:ml-64 md:p-4 bg-slate-500 ">
+        <div className="w-full md:ml-64 md:p-4 dark:bg-gray-800 ">
           <Outlet />
         </div>
       </div>
