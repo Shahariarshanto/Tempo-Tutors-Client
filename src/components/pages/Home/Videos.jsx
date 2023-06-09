@@ -5,7 +5,6 @@ const Videos = () => {
   const videoIds = ["FqtyMQi87J4", "8xTOjAInUYc", "ZLjprbeWMxQ", "E442Dzg8BcE"];
 
   const opts =  {
-
       height:  "180",
       width: "320" ,
       playerVars: {
