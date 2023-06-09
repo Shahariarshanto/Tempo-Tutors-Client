@@ -36,7 +36,16 @@ const togglePasswordVisibility = () => {
     signInWithGoogle()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        fetch("http://localhost:9000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: loggedUser.displayName,
+            Email: loggedUser.email,
+          }),
+        });
 
         navigate(form);
       })

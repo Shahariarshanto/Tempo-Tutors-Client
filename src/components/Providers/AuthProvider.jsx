@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
+import axios from "axios";
 import {
-    createUserWithEmailAndPassword,
-    getAuth,
-    GithubAuthProvider,
-    GoogleAuthProvider,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signInWithPopup,
-    signOut,
+  createUserWithEmailAndPassword,
+  getAuth,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
@@ -43,12 +45,34 @@ const AuthProviders = ({ children }) => {
     return signOut(auth);
   };
 
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
+
   // observe auth state change
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       // console.log("auth state change", currentUser);
       setUser(currentUser);
-      setLoading(false);
+      // get and set token
+      if (currentUser) {
+        axios
+          .post("http://localhost:9000/jwt", {
+            email: currentUser.email,
+          })
+          .then((data) => {
+            console.log(data.data);
+            localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
+
     });
 
     return () => {
@@ -64,6 +88,7 @@ const AuthProviders = ({ children }) => {
     signInWithGoogle,
     signInWithGithub,
     logOut,
+    updateUserProfile,
   };
 
   return (

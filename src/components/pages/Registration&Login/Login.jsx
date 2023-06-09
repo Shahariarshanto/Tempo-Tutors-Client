@@ -13,14 +13,10 @@ export default function Login() {
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
-
-    const {  signInWithGoogle } =
-      useContext(AuthContext);
-    const location = useLocation();
-    const navigate = useNavigate();
+  const { signInWithGoogle } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const form = location.state?.form?.pathname || "/";
-  
-
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -28,9 +24,8 @@ export default function Login() {
 
   const onSubmit = (data) => {
     // Handle login logic here
-      console.log(data);
+    console.log(data);
   };
-
 
   // Handle google login
   const handleGoogleSignIn = () => {
@@ -38,6 +33,16 @@ export default function Login() {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        fetch("http://localhost:9000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: loggedUser.displayName,
+            Email: loggedUser.email,
+          }),
+        });
 
         navigate(form);
       })
@@ -108,9 +113,7 @@ export default function Login() {
         <div className="mt-4">
           <p className="text-gray-900 dark:text-white my-3 text-center">Or</p>
           <div onClick={handleGoogleSignIn}>
-         
-          
-          <SocialLogin />
+            <SocialLogin />
           </div>
         </div>
       </div>

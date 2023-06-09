@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.12",
+    "axios": "^1.4.0",
     "firebase": "^9.22.1",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.7",
@@ -20,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
     "react-icons": "^4.9.0",
+    "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.11.2",
     "react-slick": "^0.29.0",
     "react-youtube": "^10.1.0",
